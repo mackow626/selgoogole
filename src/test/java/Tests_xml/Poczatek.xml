@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name="Logowanie">
+    <test name="Prosze zaloguj" >
+        <classes>
+            <class name="Tests.Mail">
+                <methods>
+                    <include name="Logowanie1" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Odczytaj mail" >
+        <classes>
+            <class name="Tests.Mail">
+                <methods>
+                    <include name="odczytMail" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="wyslijOdbierzmail" >
+        <classes>
+            <class name="Tests.Mail">
+                <methods>
+                    <include name="wyslijOdbierzmail" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

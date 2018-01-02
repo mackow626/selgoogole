@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Dane">
+    <suite-files>
+        <suite-file path="src/test/java/Tests_xml/Poczatek.xml" />
+
+    </suite-files>
+</suite>
