@@ -14,6 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import PageObject.Poczatek.WyslijOdbierz;
 
+import java.io.File;
 import java.lang.reflect.Method;
 
 import java.util.concurrent.TimeUnit;
@@ -37,6 +38,8 @@ public class Base {
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         }else if(przegladarka.equals("Chrome"))
         {
+            File file = new File("chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
             driver=new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
