@@ -15,17 +15,17 @@ public class dataProvider extends Base {
 
         Object[][] result = null;
 
-        if (method.getName().equals("Logowanie1")) {
+        if (method.getName().equals("Login1")) {
             result = new Object[][]{
                     {"626mackow626",
                             "selenium123"}
             };
-        } else if (method.getName().equals("odczytMail")) {
+        } else if (method.getName().equals("readMail")) {
             result = new Object[][]{
                     {"626mackow626",
                             "selenium123"}
             };
-        } else if (method.getName().equals("wyslijOdbierzmail")) {
+        } else if (method.getName().equals("sendRecive")) {
             result = new Object[][]{
                     {"626mackow626",
                             "selenium123",

@@ -39,7 +39,7 @@
                         <configuration>
                             <systemPropertyVariables>
                                 <profile-id>allBundy</profile-id>
-                                <przegladarka>firefox</przegladarka>
+                                <webbrowser>firefox</webbrowser>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
                                 <suiteXmlFile>TestSiute.xml</suiteXmlFile>
@@ -61,7 +61,7 @@
                         <configuration>
                             <systemPropertyVariables>
                                 <profile-id>IE</profile-id>
-                                <przegladarka>IE</przegladarka>
+                                <webbrowser>IE</webbrowser>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
                                 <suiteXmlFile>TestSiute.xml</suiteXmlFile>
@@ -83,7 +83,7 @@
                         <configuration>
                             <systemPropertyVariables>
                                 <profile-id>Chrome</profile-id>
-                                <przegladarka>Chrome</przegladarka>
+                                <webbrowser>Chrome</webbrowser>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
                                 <suiteXmlFile>TestSiute.xml</suiteXmlFile>

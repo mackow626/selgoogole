@@ -1,4 +1,4 @@
-package PageObject.Poczatek;
+package PageObject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,29 +8,29 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by mkowalczuk on 2015-10-23.
  */
-public class PageMail {
+public class MailPage {
 
     WebDriver driver;
 
-    public PageMail(WebDriver driver){
+    public MailPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//*[@id=':3k']")
-    WebElement pierwszyMail;
+    WebElement firstMail;
 
     @FindBy(xpath = "//*[@id=':2']/div/div[2]/div/table/tr/td[1]/div[2]/div[1]/div[2]")
-    WebElement assercja;
+    WebElement assertion;
 
 
-    public void klikPierwszymail(){
-        pierwszyMail.click();
+    public void clickFirst(){
+        firstMail.click();
     }
 
-    public boolean czyAsercjaWidoczna(){
+    public boolean assertionDisplayed(){
 
-        boolean sprawdz = assercja.isDisplayed();
+        boolean sprawdz = assertion.isDisplayed();
         return sprawdz;
     }
 

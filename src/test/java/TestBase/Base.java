@@ -2,20 +2,14 @@ package TestBase;
 
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.browserlaunchers.locators.InternetExplorerLocator;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.opera.OperaDriver;
-import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
-import PageObject.Poczatek.WyslijOdbierz;
 
 import java.io.File;
-import java.lang.reflect.Method;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,22 +22,22 @@ public class Base {
     public long startTime;
 
     @BeforeMethod
-    @Parameters({"przegladarka"})
-    public void Przegladarka(String przegladarka){
+    @Parameters({"webbrowser"})
+    public void setUp(String webbrowser){
         startTime = System.currentTimeMillis();
 
-        if(przegladarka.equals("firefox")){
+        if(webbrowser.equals("firefox")){
             driver = new FirefoxDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        }else if(przegladarka.equals("Chrome"))
+        }else if(webbrowser.equals("Chrome"))
         {
             File file = new File("chromedriver.exe");
             System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
             driver=new ChromeDriver();
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        }else if(przegladarka.equals("IE")){ // niedzia�a TODO
+        }else if(webbrowser.equals("IE")){ // TODO
             driver=new InternetExplorerDriver();
            // driver.manage().window().maximize();
         }
@@ -53,7 +47,7 @@ public class Base {
 
     @AfterMethod
 
-    public void Zakoncz(){
+    public void tearDown(){
         driver.close();
 
     }

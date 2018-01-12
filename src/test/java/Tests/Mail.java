@@ -1,12 +1,10 @@
 package Tests;
 
-import PageObject.Poczatek.PageLogowanie;
-import PageObject.Poczatek.PageMail;
-import PageObject.Poczatek.WyslijOdbierz;
-import TestBase.Base;
+import PageObject.LogPage;
+import PageObject.MailPage;
+import PageObject.SendAndReciveMail;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.annotations.DataProvider;
 import data.dataProvider;
 
 import java.util.concurrent.TimeUnit;
@@ -18,70 +16,67 @@ import java.util.concurrent.TimeUnit;
 public class Mail extends dataProvider {
 
 
-    @Test (description="Prosze zaloguj", dataProvider = "mail")
-         public void Logowanie1(String login, String haslo){
+    @Test (description="Prosze login", dataProvider = "mail")
+         public void Login1(String login, String haslo){
 
-        PageLogowanie pagelogowanie = new PageLogowanie(driver);
+        LogPage pagelogowanie = new LogPage(driver);
 
-        //long startTime = System.currentTimeMillis();
-
-
-        pagelogowanie.zaloguj(login,haslo);
+        pagelogowanie.login(login,haslo);
         TimeUnit.NANOSECONDS.toSeconds(1000000000000L);
 
         long diff = System.currentTimeMillis() - startTime;
 
         System.out.println("Load time was test 1 " + diff);
 
-        Assert.assertTrue(pagelogowanie.asercja().isDisplayed());
+        Assert.assertTrue(pagelogowanie.getAssertion().isDisplayed());
         Assert.assertTrue(diff<15000);
 
     }
 
     @Test (description="Odczytaj mail", dataProvider = "mail")
-    public void odczytMail(String login, String haslo){
+    public void readMail(String login, String haslo){
 
-        PageLogowanie pagelogowanie = new PageLogowanie(driver);
-        PageMail pagemail = new PageMail(driver);
+        LogPage logPage = new LogPage(driver);
+        MailPage mailPage = new MailPage(driver);
 
-        pagelogowanie.zaloguj(login,haslo);
-        pagemail.klikPierwszymail();
+        logPage.login(login,haslo);
+        mailPage.clickFirst();
         long diff = System.currentTimeMillis() - startTime;
 
-        Assert.assertTrue(pagemail.czyAsercjaWidoczna());
+        Assert.assertTrue(mailPage.assertionDisplayed());
 
         System.out.println("Load time was test 2 " + diff);
         Assert.assertTrue(diff < 20000);
     }
 
-    @Test (description="wyslijOdbierzmail", dataProvider = "mail")
-    public void wyslijOdbierzmail(String login, String haslo, String mail, String zawartosc) throws InterruptedException {
+    @Test (description="sendRecive", dataProvider = "mail")
+    public void sendRecive(String login, String haslo, String mail, String zawartosc) throws InterruptedException {
 
-        PageLogowanie pagelogowanie = new PageLogowanie(driver);
-        WyslijOdbierz wyslijodbierz = new WyslijOdbierz(driver);
+        LogPage pagelogowanie = new LogPage(driver);
+        SendAndReciveMail wyslijodbierz = new SendAndReciveMail(driver);
 
-        pagelogowanie.zaloguj(login,haslo);
+        pagelogowanie.login(login,haslo);
 
-        wyslijodbierz.klikUtworz();
+        wyslijodbierz.clickCreate();
         driver.switchTo().parentFrame();
-        wyslijodbierz.wprowadzAdresata(mail);
-        wyslijodbierz.wprowadzTemat();
-        wyslijodbierz.wprowadzTresc(zawartosc);
-        wyslijodbierz.klikWyslij();
+        wyslijodbierz.insertAddressee(mail);
+        wyslijodbierz.insertSubject();
+        wyslijodbierz.insertContent(zawartosc);
+        wyslijodbierz.clickSend();
 
         for (int i = 0; i <= 12; i++) {
-             if(!wyslijodbierz.getAsercja().getText().contains(wyslijodbierz.getTematString().toString())) {
+             if(!wyslijodbierz.getAssertion().getText().contains(wyslijodbierz.getRandomSubject().toString())) {
                     wyslijodbierz.czekaj(5000);
             }else{
-                 Assert.assertTrue(wyslijodbierz.getAsercja().getText().contains(wyslijodbierz.getTematString().toString()));
+                 Assert.assertTrue(wyslijodbierz.getAssertion().getText().contains(wyslijodbierz.getRandomSubject().toString()));
                  System.out.println("test wykonany pozytywnie za tym obrotem   "+ i);
                  break;
              }
         }
 
-     //   System.out.println(wyslijodbierz.getAsercja().getText());
+     //   System.out.println(wyslijodbierz.getAssertion().getText());
 
-       // System.out.println(wyslijodbierz.getTematString().toString());
+       // System.out.println(wyslijodbierz.getRandomSubject().toString());
 
        // System.out.println("Load time was test 3 " + diff);
 

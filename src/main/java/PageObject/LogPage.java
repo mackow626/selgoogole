@@ -1,4 +1,4 @@
-package PageObject.Poczatek;
+package PageObject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,11 +8,11 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by mkowalczuk on 2015-10-22.
  */
-public class PageLogowanie {
+public class LogPage {
 
     WebDriver driver;
 
-    public PageLogowanie(WebDriver driver){
+    public LogPage(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -21,28 +21,28 @@ public class PageLogowanie {
     WebElement login;
 
     @FindBy(xpath = "//input[@id='next']")
-    WebElement dalej;
+    WebElement forward;
 
     @FindBy(xpath = "//input[@id='Passwd']")
-    WebElement haslo;
+    WebElement password;
 
     @FindBy(xpath = "//input[@id='signIn']")
-    WebElement ZalogujSie;
+    WebElement logIn;
 
     @FindBy(xpath = "//*[@id='gbq1']/div/a/span")
-    WebElement assercja;
+    WebElement assertion;
 
 
 
-    public void zaloguj(String login1, String haslo1){
+    public void login(String login1, String haslo1){
         login.sendKeys(login1);
-        dalej.click();
-        haslo.sendKeys(haslo1);
-        ZalogujSie.click();
+        forward.click();
+        password.sendKeys(haslo1);
+        logIn.click();
     }
 
-    public WebElement asercja(){
-        return assercja;
+    public WebElement getAssertion(){
+        return assertion;
     }
 
 
