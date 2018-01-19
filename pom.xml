@@ -42,7 +42,7 @@
                                 <webbrowser>firefox</webbrowser>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
-                                <suiteXmlFile>TestSiute.xml</suiteXmlFile>
+                                <suiteXmlFile>src/test/java/Tests_xml/SetOfTests.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
@@ -64,7 +64,7 @@
                                 <webbrowser>IE</webbrowser>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
-                                <suiteXmlFile>TestSiute.xml</suiteXmlFile>
+                                <suiteXmlFile>SetOfTests.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
@@ -86,7 +86,7 @@
                                 <webbrowser>Chrome</webbrowser>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
-                                <suiteXmlFile>TestSiute.xml</suiteXmlFile>
+                                <suiteXmlFile>src/test/java/Tests_xml/SetOfTests.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>

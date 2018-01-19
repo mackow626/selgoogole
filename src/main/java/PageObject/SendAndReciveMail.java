@@ -15,7 +15,7 @@ import static java.lang.Thread.sleep;
  * Created by mkowalczuk on 2015-10-23.
  */
 public class SendAndReciveMail {
-    WebDriver driver;
+    private WebDriver driver;
 
     public SendAndReciveMail(WebDriver driver){
         this.driver = driver;
@@ -41,10 +41,11 @@ public class SendAndReciveMail {
     WebElement recived;
 
     @FindBy(xpath = "//*[@class='xY a4W']")
+    private
     WebElement assertion;
 
     Random ran = new Random();
-    Double randomSubject = ran.nextDouble();
+    private Double randomSubject = ran.nextDouble();
 
     public Double getRandomSubject(){
         return randomSubject;
@@ -72,7 +73,7 @@ public class SendAndReciveMail {
     }
 
 
-    public static void czekaj(int czasWMS){
+    public static void wait1(int czasWMS){
 
         try {
             sleep(czasWMS);

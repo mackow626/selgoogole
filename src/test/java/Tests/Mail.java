@@ -66,7 +66,7 @@ public class Mail extends dataProvider {
 
         for (int i = 0; i <= 12; i++) {
              if(!wyslijodbierz.getAssertion().getText().contains(wyslijodbierz.getRandomSubject().toString())) {
-                    wyslijodbierz.czekaj(5000);
+                    wyslijodbierz.wait1(5000);
             }else{
                  Assert.assertTrue(wyslijodbierz.getAssertion().getText().contains(wyslijodbierz.getRandomSubject().toString()));
                  System.out.println("test wykonany pozytywnie za tym obrotem   "+ i);

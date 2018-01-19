@@ -5,7 +5,7 @@
         <classes>
             <class name="Tests.Mail">
                 <methods>
-                    <include name="Logowanie1" />
+                    <include name="Login1" />
                 </methods>
             </class>
         </classes>
@@ -15,19 +15,20 @@
         <classes>
             <class name="Tests.Mail">
                 <methods>
-                    <include name="odczytMail" />
+                    <include name="readMail" />
+                    <include name="sendRecive" />
                 </methods>
             </class>
         </classes>
     </test>
 
-    <test name="wyslijOdbierzmail" >
+<!--    <test name="wyslijOdbierzmail" >
         <classes>
             <class name="Tests.Mail">
                 <methods>
-                    <include name="wyslijOdbierzmail" />
+                    <include name="sendRecive" />
                 </methods>
             </class>
         </classes>
-    </test>
+    </test>-->
 </suite>
