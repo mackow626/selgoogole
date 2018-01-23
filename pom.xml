@@ -84,6 +84,7 @@
                             <systemPropertyVariables>
                                 <profile-id>Chrome</profile-id>
                                 <webbrowser>Chrome</webbrowser>
+                                <webSite>https://mail.google.com/</webSite>
                             </systemPropertyVariables>
                             <suiteXmlFiles>
                                 <suiteXmlFile>src/test/java/Tests_xml/SetOfTests.xml</suiteXmlFile>

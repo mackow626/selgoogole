@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import static java.lang.Thread.sleep;
+
 /**
  * Created by mkowalczuk on 2015-10-22.
  */
@@ -17,16 +19,16 @@ public class LogPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//input[@id='Email']")
+    @FindBy(xpath = "//input[@id='identifierId']")
     WebElement login;
 
-    @FindBy(xpath = "//input[@id='next']")
+    @FindBy(xpath = "//div[@id='identifierNext']")
     WebElement forward;
 
-    @FindBy(xpath = "//input[@id='Passwd']")
+    @FindBy(xpath = "//input[@name='password']")
     WebElement password;
 
-    @FindBy(xpath = "//input[@id='signIn']")
+    @FindBy(xpath = "//div[@id='passwordNext']")
     WebElement logIn;
 
     @FindBy(xpath = "//*[@id='gbq1']/div/a/span")
@@ -45,7 +47,14 @@ public class LogPage {
         return assertion;
     }
 
+    public static void wait1(int czasWMS){
 
+        try {
+            sleep(czasWMS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

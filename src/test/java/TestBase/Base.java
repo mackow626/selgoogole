@@ -22,8 +22,8 @@ public class Base {
     public long startTime;
 
     @BeforeMethod
-    @Parameters({"webbrowser"})
-    public void setUp(String webbrowser){
+    @Parameters({"webbrowser", "webSite"})
+    public void setUp(String webbrowser, String webSite){
         startTime = System.currentTimeMillis();
 
         if(webbrowser.equals("firefox")){
@@ -42,13 +42,14 @@ public class Base {
            // driver.manage().window().maximize();
         }
 
-        driver.get("https://mail.google.com/");
+        driver.get(webSite);
     }
 
     @AfterMethod
 
     public void tearDown(){
         driver.close();
+
 
     }
 
