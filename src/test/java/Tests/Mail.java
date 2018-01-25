@@ -19,18 +19,18 @@ public class Mail extends dataProvider {
     @Test (description="Prosze login", dataProvider = "mail")
          public void Login1(String login, String haslo){
 
-//        LogPage pagelogowanie = new LogPage(driver);
-//
-//        pagelogowanie.login(login,haslo);
-//      //  TimeUnit.NANOSECONDS.toSeconds(1000000000000L);
-//        pagelogowanie.wait1(5000);
-//
-//        long diff = System.currentTimeMillis() - startTime;
-//
-//        System.out.println("Load time was test 1 " + diff);
-//
-//        Assert.assertTrue(pagelogowanie.getAssertion().isDisplayed());
-//        Assert.assertTrue(diff<15000);
+        LogPage pagelogowanie = new LogPage(driver);
+
+        pagelogowanie.login(login,haslo);
+      //  TimeUnit.NANOSECONDS.toSeconds(1000000000000L);
+        pagelogowanie.wait1(5000);
+
+        long diff = System.currentTimeMillis() - startTime;
+
+        System.out.println("Load time was test 1 " + diff);
+
+        Assert.assertTrue(pagelogowanie.getAssertion().isDisplayed());
+        Assert.assertTrue(diff<15000);
 
     }
 
